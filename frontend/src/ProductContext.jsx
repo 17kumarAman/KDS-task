@@ -14,7 +14,7 @@ export const ProductProvider = ({ children }) => {
 
     const fetchProducts = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/products');
+            const response = await axios.get('https://kds-task.vercel.app/api/products');
             setProducts(response.data);
         } catch (error) {
             console.error("Error fetching products:", error);
@@ -23,7 +23,7 @@ export const ProductProvider = ({ children }) => {
 
     const addProduct = async (product) => {
         try {
-            await axios.post('http://localhost:5000/api/products', product);
+            await axios.post('https://kds-task.vercel.app/api/products', product);
             fetchProducts();
         } catch (error) {
             console.error("Error adding product:", error);
@@ -32,7 +32,7 @@ export const ProductProvider = ({ children }) => {
 
     const deleteProduct = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/api/products/${id}`);
+            await axios.delete(`https://kds-task.vercel.app/api/products/${id}`);
             fetchProducts();
         } catch (error) {
             console.error("Error deleting product:", error);
